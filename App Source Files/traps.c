@@ -35,8 +35,6 @@ void __attribute__((__interrupt__,auto_psv)) _FLTA1Interrupt(void)
     // about 10 second skip delay before entering into fault SH
     if(skip++ >= DELAY_OVCURRENT){
             skip = DELAY_OVCURRENT;
-            P1OVDCON = 0x0000;              //set all PWM pins to LOW
-            IFS3bits.FLTA1IF = 1;           //trap it
             /*Blink at about 0.6 sec*/
             if(skip_blink++ > DELAY_BLINK){
                 skip_blink = 0;
