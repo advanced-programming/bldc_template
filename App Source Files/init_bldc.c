@@ -119,10 +119,10 @@ void InitMCPWM(void)
     IPC14bits.PWM1IP = 4;       // PWM Interrupt Priority 4
     IFS3bits.PWM1IF=0;          // Clearing the PWM Interrupt Flag
 
-    //faultA enabled, FaultB disabled
-    //__builtin_write_PWMSFR(&P1FLTACON, 0x0087, &PWM1KEY);//On the target only
+    //faultA enabled, FaultB disabled.  Latch mode.
+    //__builtin_write_PWMSFR(&P1FLTACON, 0x0007, &PWM1KEY);//On the target only
     //__builtin_write_PWMSFR(&P1FLTBCON, 0x0080, &PWM1KEY);//On the target only
-    P1FLTACON=0x0087;   // For simulation only
+    P1FLTACON=0x0007;   // For simulation only
     P1FLTBCON= 0x0080;  // For simulation only
 
 
